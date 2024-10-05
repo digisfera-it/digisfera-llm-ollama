@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>it.digisfera</groupId>
+	<artifactId>digisfera-llm-ollama</artifactId>
+	<version>1.0.0</version>
+	<name>DigiSfera.it LLM ollama</name>
+	<description>DigiSfera.it LLM ollama</description>
+	<developers>
+		<developer>
+			<name>DigiSfera.it</name>
+			<email>info@digisfera.it</email>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:https://github.com/digisfera-it/digisfera-llm-ollama.git</connection>
+	</scm>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<httpclient.version>4.5.13</httpclient.version>
+		<jackson.version>2.13.3</jackson.version>
+	</properties>
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>it.digisfera</groupId>
+			<artifactId>digisfera-llm-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+	</dependencies>
+</project>
