@@ -16,7 +16,7 @@ Step 2. Add the dependency
 
 ```
 	<dependency>
-	    <groupId>it.digisfera</groupId>
+	    <groupId>com.github.digisfera-it</groupId>
 	    <artifactId>digisfera-llm-ollama</artifactId>
 	    <version>1.0.0</version>
 	</dependency>
