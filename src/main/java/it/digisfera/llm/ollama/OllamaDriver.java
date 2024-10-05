@@ -2,6 +2,7 @@ package it.digisfera.llm.ollama;
 
 import java.io.IOException;
 import java.net.URI;
+import java.util.Properties;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -29,11 +30,11 @@ public class OllamaDriver implements Driver {
 	}
 
 	@Override
-	public Connection connect(String url, String username, String password) throws IOException {
+	public Connection connect(String url, Properties properties) throws IOException {
 		if (!acceptsURL(url)) {
 			throw new IllegalArgumentException("Invalid URL");
 		}
-		return new OllamaConnection(objectMapper, URI.create(url.substring(URL_PREFIX.length())), username, password);
+		return new OllamaConnection(objectMapper, URI.create(url.substring(URL_PREFIX.length())), properties);
 	}
 
 }

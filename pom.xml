@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.digisfera</groupId>
 	<artifactId>digisfera-llm-ollama</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>DigiSfera.it LLM ollama</name>
 	<description>DigiSfera.it LLM ollama</description>
 	<developers>
@@ -21,6 +21,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<httpclient.version>4.5.13</httpclient.version>
 		<jackson.version>2.13.3</jackson.version>
+		<junit.version>4.13.2</junit.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -32,7 +33,7 @@
 		<dependency>
 			<groupId>com.github.digisfera-it</groupId>
 			<artifactId>digisfera-llm-api</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -43,6 +44,12 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
