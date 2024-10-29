@@ -52,4 +52,11 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/digisfera-it/digisfera-llm-ollama</url>
+		</repository>
+	</distributionManagement>
 </project>
