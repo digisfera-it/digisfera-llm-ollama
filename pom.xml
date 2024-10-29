@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.digisfera</groupId>
 	<artifactId>digisfera-llm-ollama</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>DigiSfera.it LLM ollama</name>
 	<description>DigiSfera.it LLM ollama</description>
 	<developers>
