@@ -1,13 +1,20 @@
 # digisfera-llm-ollama
 
-Usage: add the dependency
+Step 1. Add the repository
+```
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+Step 2. Add the dependency
 
 ```
 	<dependency>
-	    <groupId>it.digisfera</groupId>
+	    <groupId>com.github.digisfera-it</groupId>
 	    <artifactId>digisfera-llm-ollama</artifactId>
 	    <version>1.0.4</version>
 	</dependency>
 ```
-
-To apply changes, create a new release to execute a new Maven deploy
