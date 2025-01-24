@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.digisfera</groupId>
 	<artifactId>digisfera-llm-ollama</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<name>DigiSfera.it LLM ollama</name>
 	<description>DigiSfera.it LLM ollama</description>
 	<developers>
@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>com.github.digisfera-it</groupId>
 			<artifactId>digisfera-llm-api</artifactId>
-			<version>1.0.4</version>
+			<version>1.0.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
