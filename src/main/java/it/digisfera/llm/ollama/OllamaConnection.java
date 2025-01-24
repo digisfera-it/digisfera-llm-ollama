@@ -8,19 +8,27 @@ import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.StatusLine;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
+import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -76,7 +84,7 @@ public class OllamaConnection implements Connection {
 			StringBuilder contentBuilder = new StringBuilder();
 			try {
 				addMessage(new Message(Role.USER, message));
-				HttpPost request = new HttpPost(uri);
+				HttpPost request = new HttpPost(uri.toString() + "/chat");
 				request.setHeader("Content-Type", "application/json");
 				request.setEntity(new StringEntity(objectMapper.writeValueAsString(this), StandardCharsets.UTF_8));
 				HttpResponse response = httpClient.execute(request);
@@ -144,6 +152,23 @@ public class OllamaConnection implements Connection {
 	@Override
 	protected void finalize() throws Throwable {
 		httpClient.close();
+	}
+
+	@Override
+	public Set<String> getModels() throws IOException {
+		HttpGet request = new HttpGet(uri.toString() + "/tags");
+		request.setHeader("Content-Type", "application/json");
+		HttpResponse response = httpClient.execute(request);
+		String responseBody = EntityUtils.toString(response.getEntity(), "UTF-8");
+		StatusLine statusLine = response.getStatusLine();
+		if (statusLine.getStatusCode() != HttpStatus.SC_OK) {
+			throw new HttpResponseException(statusLine.getStatusCode(), statusLine.getReasonPhrase());
+		}
+		@SuppressWarnings("unchecked")
+		Map<String, Object> responseJSON = objectMapper.readValue(responseBody, Map.class);
+		@SuppressWarnings("unchecked")
+		List<Map<String, Object>> models = (List<Map<String, Object>>) responseJSON.get("models");
+		return models.stream().map(e -> e.get("name").toString()).collect(Collectors.toSet());
 	}
 
 }
