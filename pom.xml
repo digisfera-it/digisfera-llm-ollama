@@ -23,9 +23,15 @@
 		<jackson.version>2.13.3</jackson.version>
 		<junit.version>4.13.2</junit.version>
 	</properties>
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
-			<groupId>it.digisfera</groupId>
+			<groupId>com.github.digisfera-it</groupId>
 			<artifactId>digisfera-llm-api</artifactId>
 			<version>1.0.4</version>
 		</dependency>
